@@ -10,15 +10,15 @@ interface ThemeContext {
 const ThemeContext = createContext<ThemeContext | undefined>(undefined)
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [mode, setMode] = useState('')
+  const [mode, setMode] = useState('dark')
 
   const handleThemeChange = () => {
     if (mode === 'dark') {
-      setMode('light')
-      document.documentElement.classList.remove('dark')
-    } else {
       setMode('dark')
       document.documentElement.classList.add('dark')
+    } else {
+      setMode('light')
+      document.documentElement.classList.remove('dark')
     }
   }
 
